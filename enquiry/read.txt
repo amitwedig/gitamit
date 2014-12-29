@@ -5,3 +5,16 @@ https://apps.shopify.com/enquiry
 https://amit-demo-shop.myshopify.com/admin
 
 http://stackoverflow.com/questions/15601463/jquery-fancybox-form
+
+
+http://email.about.com/od/emailprogrammingtips/qt/PHP_Email_SMTP_Authentication.htm
+
+Server : 118.139.162.49
+Username: shopify
+Password: shopify
+
+database details:
+
+DB: wedighq_shopify
+U: wedighq_shopify
+P: sh0p!fy
