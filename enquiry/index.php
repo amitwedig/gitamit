@@ -10,7 +10,7 @@ $script_tag_added = shopify_call($token, $shop, "/admin/script_tags.json", array
 $script_tag_list = json_decode($script_tag_added['response'], TRUE);
 
 foreach ($script_tag_list['script_tags'] as $key => $value) {
-	if( $value['src'] == "http://dev.wedighq.com/shopify/quick_enquiry/enquiry_script.js"){
+	if( $value['src'] == "//dev.wedighq.com/shopify/quick_enquiry/enquiry_script.js"){
 		$istall_script = 1;
 	}
 	//$script_tag_added1 = shopify_call($token, $shop, "/admin/script_tags/".$value['id'].".json", array(), 'DELETE');
@@ -19,7 +19,7 @@ if( $istall_script == 0 ){
 	$query_for_adding_script = array(
 		"script_tag"=>array(
 			"event"=>"onload",
-			"src"=>"http://dev.wedighq.com/shopify/quick_enquiry/enquiry_script.js"
+			"src"=>"//dev.wedighq.com/shopify/quick_enquiry/enquiry_script.js"
 			)
 		);
 	$script_tag_added = shopify_call($token, $shop, "/admin/script_tags.json", $query_for_adding_script, 'POST');
