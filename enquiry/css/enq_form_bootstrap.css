@@ -19,13 +19,19 @@ body {
   color: #777777;
   background-color: #fcfcfc;
 }
-* {
+/** {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 *:before,
 *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
+
+.col-lg-2, .col-lg-12, .col-lg-10, .col-lg-2:before, .col-lg-12:before, .col-lg-10:before, .col-lg-2:after, .col-lg-12:after, .col-lg-10:after, .form-control, .form-control:before, .form-control:after{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -37,7 +43,7 @@ col-lg-10,.col-lg-12 {
   padding-right: 15px;
 }
 small {
-  font-size: 80%;
+  font-size: 92%;
 }
 
   p,
@@ -59,7 +65,10 @@ h2,
   line-height: 1.1;
   color: #444444;
 }
-
+h2,
+.h2 {
+  font-size: 27px;
+}
 h1 small,
 h2 small,
 .h1 small,
@@ -106,6 +115,12 @@ a.text-success:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+}
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #b7b7b7;
 }
 @media (min-width: 1200px) {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
