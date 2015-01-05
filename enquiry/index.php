@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config/config.php");
+/*require_once("config/config.php");
 require_once("functions.php");
 $token = $_SESSION['token'];
 $shop = $_SESSION['shop'];
@@ -23,10 +23,10 @@ if( $istall_script == 0 ){
 			)
 		);
 	$script_tag_added = shopify_call($token, $shop, "/admin/script_tags.json", $query_for_adding_script, 'POST');
-}
-echo "<pre>";
-print_r($script_tag_list);
-echo "</pre>";
+}*/
+//echo "<pre>";
+//print_r($script_tag_list);
+//echo "</pre>";
 //echo '<b><a href="http://'.$shop.'">Go To Shop</a> &nbsp; &nbsp; &nbsp; <a href="https://'.$shop.'/admin/apps">Go To Admin</a></b>';
 ?>
 <html lang="en">
@@ -55,7 +55,91 @@ echo "</pre>";
               </ul>
               <div id="myTabContent" class="tab-content m20">
                 <div class="tab-pane fade active in" id="email">
-                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                	<!-- <small>Set your email settings.</small> -->
+                	<form class="form-horizontal mt20" name="emailSettings" method="post">
+					    <div class="page-header">
+						  <h4>Email Authentication Details</h4>
+						</div>
+					    <div class="form-group">
+					      <label for="hostname" class="col-lg-2 control-label">Host Name</label>
+					      <div class="col-lg-10">
+					        <input type="text" class="form-control" name="hostname" id="hostname" placeholder="Enter your smtp host name">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="emailusername" class="col-lg-2 control-label">Username</label>
+					      <div class="col-lg-10">
+					        <input type="text" class="form-control" name="emailusername" id="emailusername" placeholder="Enter your smtp username">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="emailpassword" class="col-lg-2 control-label">Password</label>
+					      <div class="col-lg-10">
+					        <input type="password" class="form-control" name="emailpassword" id="emailpassword" placeholder="Enter your smtp password">
+					        <!-- <div class="checkbox">
+					          <label>
+					            <input type="checkbox"> Checkbox
+					          </label>
+					        </div> -->
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="emailport" class="col-lg-2 control-label">Port</label>
+					      <div class="col-lg-10">
+					        <input type="text" class="form-control" name="emailport" id="emailport" placeholder="Enter your smtp port">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+					      <div class="col-lg-10">
+					        <textarea class="form-control" rows="3" id="textArea"></textarea>
+					        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label class="col-lg-2 control-label">Radios</label>
+					      <div class="col-lg-10">
+					        <div class="radio">
+					          <label>
+					            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+					            Option one is this
+					          </label>
+					        </div>
+					        <div class="radio">
+					          <label>
+					            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					            Option two can be something else
+					          </label>
+					        </div>
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="select" class="col-lg-2 control-label">Selects</label>
+					      <div class="col-lg-10">
+					        <select class="form-control" id="select">
+					          <option>1</option>
+					          <option>2</option>
+					          <option>3</option>
+					          <option>4</option>
+					          <option>5</option>
+					        </select>
+					        <br>
+					        <select multiple="" class="form-control">
+					          <option>1</option>
+					          <option>2</option>
+					          <option>3</option>
+					          <option>4</option>
+					          <option>5</option>
+					        </select>
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <div class="col-lg-10 col-lg-offset-2">
+					        <button class="btn btn-default">Cancel</button>
+					        <button type="submit" class="btn btn-primary">Submit</button>
+					      </div>
+					    </div>
+					</form>
                 </div>
                 <div class="tab-pane fade" id="form">                  
                 	<form class="form-horizontal">						
