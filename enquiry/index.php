@@ -33,7 +33,7 @@ if( $istall_script == 0 ){
 <head>
 	<meta charset="utf-8">
 	<title>Quick Enquiry</title>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery-1.10.2.min.js"></script>
@@ -49,176 +49,255 @@ if( $istall_script == 0 ){
         <div class="panel panel-default">
             <div class="bs-component">
               <ul class="nav nav-tabs">
-                <li class="active"><a href="#email" data-toggle="tab"><i class="fa fa-envelope-o fa-lg"></i> Email Settings</a></li>
+                <li class="active"><a href="#email" data-toggle="tab">Settings</a></li><!-- 
                 <li><a href="#form" data-toggle="tab"><i class="fa fa-pencil-square-o fa-lg"></i> Form Settings</a></li>
-                <li><a href="#theme" data-toggle="tab"><i class="fa fa-paint-brush fa-lg"></i> Theme Settings</a></li>
+                <li><a href="#theme" data-toggle="tab"><i class="fa fa-paint-brush fa-lg"></i> Theme Settings</a></li> -->
               </ul>
               <div id="myTabContent" class="tab-content m20">
                 <div class="tab-pane fade active in" id="email">
                 	<!-- <small>Set your email settings.</small> -->
-                	<form class="form-horizontal mt20" name="emailSettings" method="post">
-					    <div class="page-header">
+                	<form class="form-horizontal mt20" name="emailSettings" id="emailSettings" method="post">
+                		<input type="hidden" class="form-control" name="shopname" id="shopname" value="amit-demo-shop.myshopify.com">
+                		<input type="hidden" class="form-control" name="savetype" id="savetype" value="emailsettings">
+                		<!-- <div class="alert alert-dismissable alert-info">
+                			<small>* fields are manadatory.</small>
+                		</div> -->
+                		<div class="page-header">
+						  <h4><i class="fa fa-envelope-o fa-lg"></i> Email Settings</h4>
+						</div>
+                		<div class="form-group">
+					      <label for="recipientname" class="col-lg-2 control-label pull-left">Recipient Name <small class="text-danger">*</small></label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="recipientname" id="recipientname" placeholder="Enter your recipient name">
+					      </div>
+					      <div class="col-lg-5"><span id="recipientname-error" class="text-danger"></span></div>
+					    </div>
+					    <div class="form-group">
+					      <label for="recipientemail" class="col-lg-2 control-label">Recipient Email <small class="text-danger">*</small></label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="recipientemail" id="recipientemail" placeholder="Enter your recipient email">
+					      </div>
+					      <div class="col-lg-5"><span id="recipientemail-error" class="text-danger"></span></div>
+					    </div>
+					    <!-- <div class="form-group">
+					      <label for="sendername" class="col-lg-2 control-label">Sender Name</label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="sendername" id="sendername" placeholder="Enter your sender name">
+					      </div>
+					      <div class="col-lg-5"><span id="sendername-error" class="text-danger"></span></div>
+					    </div>
+					    <div class="form-group">
+					      <label for="senderemail" class="col-lg-2 control-label">Sender Email</label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="senderemail" id="senderemail" placeholder="Enter your recipient email">
+					      </div>
+					      <div class="col-lg-5"><span id="senderemail-error" class="text-danger"></span></div>
+					    </div>
+					    <div class="form-group">
+					      <label for="replyto" class="col-lg-2 control-label">Reply To Email</label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="replyto" id="replyto" placeholder="Enter your reply to email">
+					      </div>
+					      <div class="col-lg-5"><span id="replyto-error" class="text-danger"></span></div>
+					    </div>
+					    <div class="form-group">
+					      <label for="ccemail" class="col-lg-2 control-label">CC Email </label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="ccemail" id="ccemail" placeholder="Enter your cc email">
+					      </div>
+					      <div class="col-lg-5"><span id="ccemail-error" class="text-danger"></span></div>
+					    </div>
+					    <div class="form-group">
+					      <label for="bccemail" class="col-lg-2 control-label">BCC Email</label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="bccemail" id="bccemail" placeholder="Enter your bcc email">
+					      </div>
+					      <div class="col-lg-5"><span id="bccemail-error" class="text-danger"></span></div>
+					    </div> -->
+					    <div class="form-group">
+					      <label for="emailsubject" class="col-lg-2 control-label">Email Subject <small class="text-danger">*</small></label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="emailsubject" id="emailsubject" placeholder="Enter your email subject">
+					      </div>
+					      <div class="col-lg-5"><span id="emailsubject-error" class="text-danger"></span></div>
+					    </div>
+					    <!-- <div class="page-header">
 						  <h4>Email Authentication Details</h4>
 						</div>
 					    <div class="form-group">
 					      <label for="hostname" class="col-lg-2 control-label">Host Name</label>
-					      <div class="col-lg-10">
+					      <div class="col-lg-5">
 					        <input type="text" class="form-control" name="hostname" id="hostname" placeholder="Enter your smtp host name">
 					      </div>
+					      <div class="col-lg-5"><span id="hostname-error" class="text-danger"></span></div>
 					    </div>
 					    <div class="form-group">
 					      <label for="emailusername" class="col-lg-2 control-label">Username</label>
-					      <div class="col-lg-10">
+					      <div class="col-lg-5">
 					        <input type="text" class="form-control" name="emailusername" id="emailusername" placeholder="Enter your smtp username">
 					      </div>
+					      <div class="col-lg-5"><span id="emailusername-error" class="text-danger"></span></div>
 					    </div>
 					    <div class="form-group">
 					      <label for="emailpassword" class="col-lg-2 control-label">Password</label>
-					      <div class="col-lg-10">
-					        <input type="password" class="form-control" name="emailpassword" id="emailpassword" placeholder="Enter your smtp password">
-					        <!-- <div class="checkbox">
-					          <label>
-					            <input type="checkbox"> Checkbox
-					          </label>
-					        </div> -->
+					      <div class="col-lg-5">
+					        <input type="password" class="form-control" name="emailpassword" id="emailpassword" placeholder="Enter your smtp password">					        
 					      </div>
+					      <div class="col-lg-5"><span id="emailpassword-error" class="text-danger"></span></div>
 					    </div>
 					    <div class="form-group">
 					      <label for="emailport" class="col-lg-2 control-label">Port</label>
-					      <div class="col-lg-10">
+					      <div class="col-lg-5">
 					        <input type="text" class="form-control" name="emailport" id="emailport" placeholder="Enter your smtp port">
 					      </div>
+					      <div class="col-lg-5"><span id="emailport-error" class="text-danger"></span></div>
+					    </div> -->
+					    <div class="page-header">
+						  <h4><i class="fa fa-pencil-square-o fa-lg"></i> Form Settings</h4>
+						</div>
+					    <div class="form-group">
+					      <label for="btntext" class="col-lg-2 control-label">Enquiry Button Text <small class="text-danger">*</small></label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="btntext" id="btntext" placeholder="Enter enquiry button text">
+					      </div>
+					      <div class="col-lg-5"><span id="btntext-error" class="text-danger"></span></div>
 					    </div>
 					    <div class="form-group">
-					      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-					      <div class="col-lg-10">
-					        <textarea class="form-control" rows="3" id="textArea"></textarea>
-					        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+					      <label for="formhdtext" class="col-lg-2 control-label">Heading Text <small class="text-danger">*</small></label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="formhdtext" id="formhdtext" placeholder="Enter enquiry form heading text">
 					      </div>
+					      <div class="col-lg-5"><span id="formhdtext-error" class="text-danger"></span></div>
 					    </div>
 					    <div class="form-group">
-					      <label class="col-lg-2 control-label">Radios</label>
-					      <div class="col-lg-10">
-					        <div class="radio">
-					          <label>
-					            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-					            Option one is this
-					          </label>
-					        </div>
-					        <div class="radio">
-					          <label>
-					            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-					            Option two can be something else
-					          </label>
-					        </div>
+					      <label for="formhdtagtext" class="col-lg-2 control-label">Heading Tagline Text <small class="text-danger">*</small></label>
+					      <div class="col-lg-5">
+					        <input type="text" class="form-control" name="formhdtagtext" id="formhdtagtext" placeholder="Enter enquiry form heading tagline text">
 					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="select" class="col-lg-2 control-label">Selects</label>
-					      <div class="col-lg-10">
-					        <select class="form-control" id="select">
-					          <option>1</option>
-					          <option>2</option>
-					          <option>3</option>
-					          <option>4</option>
-					          <option>5</option>
-					        </select>
-					        <br>
-					        <select multiple="" class="form-control">
-					          <option>1</option>
-					          <option>2</option>
-					          <option>3</option>
-					          <option>4</option>
-					          <option>5</option>
-					        </select>
-					      </div>
+					      <div class="col-lg-5"><span id="formhdtagtext-error" class="text-danger"></span></div>
 					    </div>
 					    <div class="form-group">
 					      <div class="col-lg-10 col-lg-offset-2">
-					        <button class="btn btn-default">Cancel</button>
-					        <button type="submit" class="btn btn-primary">Submit</button>
+					        <button type="button" class="btn btn-default enq-email-settings">Save Settings</button>
 					      </div>
 					    </div>
 					</form>
-                </div>
-                <div class="tab-pane fade" id="form">                  
-                	<form class="form-horizontal">						
-					    <div class="form-group">
-					      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-					      <div class="col-lg-10">
-					        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-					      <div class="col-lg-10">
-					        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-					        <div class="checkbox">
-					          <label>
-					            <input type="checkbox"> Checkbox
-					          </label>
-					        </div>
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-					      <div class="col-lg-10">
-					        <textarea class="form-control" rows="3" id="textArea"></textarea>
-					        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label class="col-lg-2 control-label">Radios</label>
-					      <div class="col-lg-10">
-					        <div class="radio">
-					          <label>
-					            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-					            Option one is this
-					          </label>
-					        </div>
-					        <div class="radio">
-					          <label>
-					            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-					            Option two can be something else
-					          </label>
-					        </div>
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="select" class="col-lg-2 control-label">Selects</label>
-					      <div class="col-lg-10">
-					        <select class="form-control" id="select">
-					          <option>1</option>
-					          <option>2</option>
-					          <option>3</option>
-					          <option>4</option>
-					          <option>5</option>
-					        </select>
-					        <br>
-					        <select multiple="" class="form-control">
-					          <option>1</option>
-					          <option>2</option>
-					          <option>3</option>
-					          <option>4</option>
-					          <option>5</option>
-					        </select>
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <div class="col-lg-10 col-lg-offset-2">
-					        <button class="btn btn-default">Cancel</button>
-					        <button type="submit" class="btn btn-primary">Submit</button>
-					      </div>
-					    </div>
-					</form>
-                </div>
-                <div class="tab-pane fade" id="theme">
-                  <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-                </div>
+                </div>                
               </div>
             </div>
         </div>
 	</div>
+	<div class="text-center">
+		<small>&copy; 2015 Quick Enquiry. All Rights Reserved.</small>
+	</div>
 </div>
 </body>
 </html>
+<script type="text/javascript">
+function isNumberKey(evt){
+	var charCode = (evt.which) ? evt.which : event.keyCode; 
+	if (charCode > 31 && (charCode < 48 || charCode > 57)){ 
+		return false; 
+	} 
+	return true;
+} 
+function isAlphaKey(evt){
+	var charCode = (evt.which) ? evt.which : event.keyCode; 
+	if (((charCode >=65) && (charCode <=90) )|| (charCode >=97) || (charCode>42 && charCode<48) || (charCode>39 && charCode<42)|| (charCode>47 && charCode<58)|| (charCode>31 && charCode<33) || charCode==8){ 
+		return true; 
+	} 
+	return false;
+}
+
+$(document).ready(function(){
+	$(".enq-email-settings").click(function(event){
+		var recipientname = $('#recipientname').val();
+        var recipientemail = $('#recipientemail').val();
+        var emailsubject = $('#emailsubject').val();
+        var btntext = $('#btntext').val();
+        var formhdtext = $('#formhdtext').val();
+        var formhdtagtext = $('#formhdtagtext').val();
+        var atpos=recipientemail.indexOf("@");
+        var dotpos=recipientemail.lastIndexOf(".");
+        var check_error = 0;
+		
+		//validations
+        if(recipientname == ""){
+            check_error = 1;
+            $('#recipientname').closest(".form-group").addClass("has-error");
+            $('#recipientname-error').html("Required !");
+        }else{
+        	$('#recipientname').closest(".form-group").removeClass("has-error");
+            $('#recipientname-error').html("");
+        }
+        if(recipientemail == ""){
+            check_error = 1;
+             $('#recipientemail').closest(".form-group").addClass("has-error");
+            $('#recipientemail-error').html("Required !");
+        }else{
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=recipientemail.length){
+                check_error = 1;
+                 $('#recipientemail').closest(".form-group").addClass("has-error");
+                $('#recipientemail-error').html("Invalid email address !");
+            }else{
+            	$('#recipientemail').closest(".form-group").removeClass("has-error");
+                $('#recipientemail-error').html("");
+            }
+        }
+        if(emailsubject == ""){
+            check_error = 1;
+             $('#emailsubject').closest(".form-group").addClass("has-error");
+            $('#emailsubject-error').html("Required !");
+        }else{
+        	$('#emailsubject').closest(".form-group").removeClass("has-error");
+            $('#emailsubject-error').html("");
+        }
+        if(btntext == ""){
+            check_error = 1;
+             $('#btntext').closest(".form-group").addClass("has-error");
+            $('#btntext-error').html("Required !");
+        }else{
+        	$('#btntext').closest(".form-group").removeClass("has-error");
+            $('#btntext-error').html("");
+        }
+        if(formhdtext == ""){
+            check_error = 1;
+             $('#formhdtext').closest(".form-group").addClass("has-error");
+            $('#formhdtext-error').html("Required !");
+        }else{
+        	$('#formhdtext').closest(".form-group").removeClass("has-error");
+            $('#formhdtext-error').html("");
+        }
+        if(formhdtagtext == ""){
+            check_error = 1;
+             $('#formhdtagtext').closest(".form-group").addClass("has-error");
+            $('#formhdtagtext-error').html("Required !");
+        }else{
+        	$('#formhdtagtext').closest(".form-group").removeClass("has-error");
+            $('#formhdtagtext-error').html("");
+        }
+        if(check_error == 0){
+        	var send_data = $("#emailSettings").serialize();
+
+			$.ajax({
+			    url         : 'http://localhost/shopify/enquiry/savesettings.php',
+			    cache       : false,
+			    data        :send_data,
+			    global      : false,
+			    crossDomain : true,
+			    dataType    : 'jsonp',
+			    type        : 'POST',
+			    success: function (data) {
+			    	alert(data.savetype);
+			    /*$("#enq-form").get(0).reset();
+			    $('#enq-name-error').html("");
+			    $('#enq-email-error').html("");
+			    $('#enq-phone-error').html("");
+			    $('#enq-message-error').html("");
+			    $('#sent-msg').attr("style","display:block;");*/
+			    }
+			});
+		}
+	});
+});
+</script>
