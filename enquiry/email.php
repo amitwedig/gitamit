@@ -64,8 +64,8 @@ $mail->Host = 'smtp1.example.com;smtp2.example.com';  // Specify main and backup
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'user@example.com';                 // SMTP username
 $mail->Password = 'secret';                           // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587;                                    // TCP port to connect to
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465;                                    // TCP port to connect to
 
 $mail->From = 'from@example.com';
 $mail->FromName = 'Mailer';

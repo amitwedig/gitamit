@@ -1,5 +1,4 @@
 <?php
-
 // Get our helper functions
 require_once("functions.php");
 session_start();
