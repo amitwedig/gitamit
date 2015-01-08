@@ -1,6 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION['shop'])){
+	header("location:https://apps.shopify.com/");
+}
 $shop = $_SESSION['shop'];
+$shopName = str_ireplace(".myshopify.com", "", $shop);
 require_once("config/config.php");
 
 $enq_settings_sql = "SELECT * FROM quick_enquiry WHERE StoreName = '$shop'";
@@ -35,7 +39,7 @@ else{
 		        <small>Welcome to quick enquiry, Set your settings here.<br><br></small>
 	    	</div>
 	        <div class="col-lg-4">
-		        <div class="btn-toolbar bs-component pull-right">
+	        	<div class="btn-toolbar bs-component pull-right">
 				    <div class="btn-group">
 					  <a href="publish_changes.php" class="btn btn-primary <?php echo $publish_disable;?>" title="<?php echo $publish_title; ?>">Publish Changes</a>
 					  <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>&nbsp;</a>
@@ -48,8 +52,10 @@ else{
 			</div>
 	    </div>
 	    <div class=" clearfix"></div>		
-        <div class="panel panel-default">
+        <div class="panel panel-default">       
             <div class="bs-component">
+	        	<div class="m20"><h3>Welcome, <?php echo $shopName;?></h3></div>		
+	        	<div class=" clearfix"></div> 
             	<div>
             		<?php if(isset($_SESSION['success_msg'])){?>
 	            	<div class="alert alert-dismissable alert-success">
@@ -81,7 +87,7 @@ else{
 						  <h4><i class="fa fa-envelope-o fa-lg"></i> Email Settings</h4>
 						</div>
                 		<div class="form-group">
-					      <label for="recipientname" class="col-lg-2 control-label pull-left">Recipient Name <small class="text-danger">*</small></label>
+					      <label for="recipientname" class="col-lg-2 control-label">Recipient Name <small class="text-danger">*</small></label>
 					      <div class="col-lg-5">
 					        <input type="text" class="form-control" name="recipientname" id="recipientname" placeholder="Enter your recipient name" value ="<?php echo $enq_settings_row['ToName'];?>">
 					      </div>
@@ -203,7 +209,7 @@ else{
         </div>
 	</div>
 	<div class="text-center">
-		<small>&copy; 2015 Quick Enquiry. All Rights Reserved.</small>
+		<span>&copy; 2015 <strong>Quick Enquiry</strong>. All Rights Reserved.</span>
 	</div>
 </div>
 </body>
