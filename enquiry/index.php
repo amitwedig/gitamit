@@ -35,8 +35,8 @@ else{
 	<div class="jumbotron m20">
 		<div class="mb20">
 			<div class="col-lg-8">
-		        <h2><img src="images/logo.png" width="40"> Quick Enquiry</h2>
-		        <small>Welcome to quick enquiry, Set your settings here.<br><br></small>
+		        <h2><img src="images/logo.png" width="40"> Quick Inquiry</h2>
+		        <small>Welcome to quick inquiry, Set your settings here.<br><br></small>
 	    	</div>
 	        <div class="col-lg-4">
 	        	<div class="btn-toolbar bs-component pull-right">
@@ -209,7 +209,7 @@ else{
         </div>
 	</div>
 	<div class="text-center">
-		<span>&copy; 2015 <strong>Quick Enquiry</strong>. All Rights Reserved.</span>
+		<span>&copy; 2015 <strong>Quick Inquiry</strong>. All Rights Reserved.</span>
 	</div>
 </div>
 </body>

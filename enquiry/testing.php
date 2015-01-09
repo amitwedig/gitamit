@@ -21,7 +21,7 @@ $themeId = $get_theme['themes'][0]['id'];
 $modify_data = array(
 	"webhook"=>array(
 		"topic"=>"app/uninstalled",
-    	"address"=>"http://dev.wedighq.com/shopify/quick_enquiry/uninstall.php",
+    	"address"=>"http://dev.wedighq.com/shopify/quick_enquiry/uninstall.php?shopname=".$shop."&token=".$token,
     	"format"=>"json"
     )
 );

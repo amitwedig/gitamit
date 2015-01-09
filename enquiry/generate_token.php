@@ -31,6 +31,7 @@ $signature_data = $_SESSION['shared_secret'] . "code=" . $_SESSION['code'] . "sh
 	$token = $shopify_response['access_token'];
 
 	$_SESSION['token'] = $token;
+	//echo $token; die;
 	header("location:index.php");
 
 //} else {
