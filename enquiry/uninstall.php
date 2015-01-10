@@ -1,4 +1,5 @@
 <?php
+$raw_post = file_get_contents("php://input");
 require_once("functions.php");
 require_once("config/config.php");
 $shopname = $_REQUEST['shopname'];
@@ -17,8 +18,9 @@ $get_theme = json_decode($get_theme['response'], TRUE);
 $themeId = $get_theme['themes'][0]['id'];
 
 //$get_template = shopify_call($token, $shopname, "/admin/themes/$themeId/assets.json?asset[key]=layout/theme.liquid&theme_id=$themeId", array(), 'GET');
-$get_template = shopify_call($token, $shopname, "/admin/themes/$themeId/assets.json", array(), 'GET');
+//$get_template = shopify_call($token, $shopname, "/admin/themes/$themeId/assets.json", array(), 'GET');
 //$get_template = json_decode($get_template['response'], TRUE);
-mail('amit.kumar@wedigtech.com','test',$get_template['response']);
+mail('amit.kumar@wedigtech.com','test',$raw_post);
+mail('amit.kumar@wedigtech.com','test',$get_theme);
 die;
 ?>

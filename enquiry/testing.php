@@ -25,8 +25,9 @@ $modify_data = array(
     	"format"=>"json"
     )
 );
-
-$get_template = shopify_call($token, $shop, "/admin/webhooks.json", $modify_data, 'POST');
+//$get_template = shopify_call($token, $shop, "/admin/themes/$themeId/assets.json", array(), 'GET');
+//$get_template = shopify_call($token, $shop, "/admin/webhooks.json", $modify_data, 'POST');
+$get_template = shopify_call($token, $shop, "/admin/webhooks.json", array(), 'GET');
 $get_template = json_decode($get_template['response'], TRUE);
 echo "<pre>";
 print_r($get_template);
