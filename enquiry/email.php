@@ -6,8 +6,33 @@ $get_settings_sql = "SELECT * FROM quick_enquiry WHERE StoreName='$shopname'";
 $get_settings_qry = mysql_query($get_settings_sql);
 $get_settings_num = mysql_num_rows($get_settings_qry);
 $get_settings_rows = mysql_fetch_assoc($get_settings_qry);
+date_default_timezone_set("UTC");
 
-$body = "<h2>$shopname</h2><br/>Name : ".$_REQUEST['enq_name']."<br/>Email : ".$_REQUEST['enq_email']."<br/>Phone : ".$_REQUEST['enq_phone']."<br/>Message : ".$_REQUEST['enq_message'];
+/*$body = "<h2>$shopname</h2><br/>Name : ".$_REQUEST['enq_name']."<br/>Email : ".$_REQUEST['enq_email']."<br/>Phone : ".$_REQUEST['enq_phone']."<br/>Message : ".$_REQUEST['enq_message'];*/
+
+$patterns = array(
+	'/\[@ShopLink\]/',
+	'/\[@ShopName\]/',
+	'/\[@EmailSubject\]/',
+	'/\[@EmailMessage\]/',
+	'/\[@CustomerName\]/',
+	'/\[@CustomerEmail\]/',
+	'/\[@CustomerPhone\]/'
+);
+
+$replacements = array(
+	$shopname,
+	str_replace(".myshopify.com", "", $shopname),
+	$get_settings_rows['EmailSubject'],
+	nl2br($_REQUEST['enq_message']),
+	$_REQUEST['enq_name'],
+	$_REQUEST['enq_email'],				
+	$_REQUEST['enq_phone']
+);
+
+if(!empty($mailtemplate) && !empty($patterns) && !empty($replacements)){
+	$body = preg_replace($patterns, $replacements,$mailtemplate);
+}
 
 if($get_settings_num > 0){
 
@@ -44,7 +69,16 @@ if($get_settings_num > 0){
 	if(!$mail->send()) {
 	    $response['error'] = "Message could not be sent...";
 	} else {
-
+		$log_data = array(
+			"store_id"=>$get_settings_rows['id'],
+			"customer_name"=>$_REQUEST['enq_name'],
+			"customer_email"=>$_REQUEST['enq_email'],
+			"customer_phone"=>$_REQUEST['enq_phone'],
+			"customer_msg"=>nl2br($_REQUEST['enq_message']),
+			"created"=>date("Y-m-d H:i:s")
+		);
+		$set_logs_sql = "INSERT INTO enquiry_logs SET StoreId = '$log_data[store_id]', CustomerName = '$log_data[customer_name]', CustomerEmail = '$log_data[customer_email]', CustomerPhone = '$log_data[customer_phone]', CustomerMsg = '$log_data[customer_msg]', Created = '$log_data[created]' ";
+		$set_logs_qry = mysql_query($set_logs_sql);
 	    $response['success'] = "Message sent successfully...";
 	}
 
