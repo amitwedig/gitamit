@@ -14,8 +14,7 @@
 	&nbsp;
 </div>
 
-<div>Welcome to langify template page.</div>
-<script type="text/javascript" src="http://langify-prod4.myshopify.com/cart/update.js"></script>
+<div><p>Welcome to langify template page.</p></div>
 
 <script type="text/javascript">
 	var ShopifyAPI = ShopifyAPI || {};
@@ -243,7 +242,7 @@
 			ShopifyAPI.updateCartNote = function(note, callback) {
 				var params = {
 					type: 'POST',
-					url: '/cart/update.js',
+					url: 'update.js',
 					data: 'note=' + this.attributeToString(note),
 					dataType: 'json',
 					success: function(cart) {
@@ -270,9 +269,10 @@
 						data += 'attributes[' + that.attributeToString(key) + ']=' + that.attributeToString(value) + '&';
 					});
 				}
+				alert(data);
 				var params = {
 					type: 'POST',
-					url: '/cart/update.js',
+					url: 'update.js',
 					data: data,
 					dataType: 'json',
 					success: function(cart) {

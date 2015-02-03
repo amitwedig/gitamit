@@ -1,0 +1,44 @@
+short Desc  :
+
+The easiest and most simple app for your customers to send a quick inquiry. Slide an inquiry box at the bottom of page.
+
+===========
+
+Selling points : 
+
+Increase the efficiency of your shop
+Easiest way to get customers requirements and reviews
+Fully customizable design looks great with any theme 
+
+===========
+
+full desc : 
+
+<p>Quick Inquiry allows your customers to send inquiry for your products and any other requirements. It increase efficiency of your store and encourage sales.</p>
+
+<p>Features:</p>
+
+<ul>
+    <li>Easiest way to send inquiry</li>
+    <li>Increase shop efficiency with customers</li>
+    <li>Customizable design of popup box without needed to code</li>
+    <li>Priceless app</li>
+</ul>
+
+===========
+
+search terms : 
+
+    enquiry
+    inquiry
+    send
+    customer reviews
+    customer support
+    custom design
+    customer requirement
+    easy to use
+    increase conversion
+    quick
+
+==========
+
